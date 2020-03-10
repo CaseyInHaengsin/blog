@@ -42,6 +42,14 @@ def update
     end
 end
 
+def destroy
+    @article = Article.find(params[:id])
+
+    @article.destroy
+    flash[:notice] = "article was deleted!"
+    redirect_to articles_path
+
+end
 
 
     private
