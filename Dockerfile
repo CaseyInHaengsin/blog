@@ -1,11 +1,11 @@
 FROM ruby:2.6.3 
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /app
 
-ADD Gemfile /usr/src/app/
-ADD Gemfile.lock /usr/src/app/
-WORKDIR /usr/src/app
+ADD Gemfile /app
+ADD Gemfile.lock /app
+WORKDIR /app
 RUN gem install bundler -v 2.1.4
 RUN bundle install
-ADD . /usr/src/app/
+ADD . /app/
 ENTRYPOINT ["bin/rails"]
