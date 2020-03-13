@@ -1,0 +1,17 @@
+<% if obj.errors.any? %>
+
+    <div class="alert alert-danger">
+        <h5>The Following Errors prevented the article from being created:</h5>
+        <ul>
+    <% obj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li> 
+        <% end %>
+    </ul>
+
+    </div>
+
+
+
+
+<% end %>
+
