@@ -64,7 +64,7 @@ end
         end
 
         def require_same_user
-            if current_user != @article.user
+            if current_user != @article.user && !current_user.admin?
                 flash[:danger] = "You crooked bastard, you can't edit some else's articles"
 
                 redirect_to root_path

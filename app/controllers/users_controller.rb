@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :show]
-    before_action :require_same_user, only: [:edit, :update]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def index
         @users = User.paginate(page: params[:page], per_page: 5)
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @user
+        if current_user != @user && !current_user.admin?
 
             flash[:danger] = "Trying to edit someone else's profile, seriously? Get out of here."
             redirect_to root_path
