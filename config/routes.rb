@@ -5,11 +5,14 @@ Rails.application.routes.draw do
       resources :users do
         resources :user
       end
+      resources :articles do
+          resources :articles
+      end
       
     end
   end
 
-  
+
   root 'home#home'
 
   get 'about', to: 'home#about'
