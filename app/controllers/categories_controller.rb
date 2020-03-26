@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:edit, :update, :show, :destroy]
+    before_action :require_admin, except: [:index, :show]
+
+
     def index
         @categories = Category.paginate(page: params[:page], per_page: 5)
     
@@ -30,6 +33,14 @@ class CategoriesController < ApplicationController
     end
     def set_category
         @category = Category.find(params[:id])
+    end
+
+    def require_admin
+        if !logged_in? || (logged_in? and !current_user.admin?)
+            flash[:danger] = "Only admins can do this"
+            redirect_to categories_path
+        end
+
     end
 
     
