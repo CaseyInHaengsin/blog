@@ -13,7 +13,7 @@ gem 'puma', '~> 4.1'
 gem 'bootstrap',  '~>4.3.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
-
+gem 'rails-controller-testing'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -36,7 +36,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'
-  gem 'rails-controller-testing'
+  
 end
 
 
